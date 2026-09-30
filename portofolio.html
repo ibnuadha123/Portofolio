@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ibnu Ad'ha | Portofolio Web</title>
+  <meta name="description" content="Portofolio Ibnu Ad'ha Hasibuan, mahasiswa Ilmu Komputer yang berfokus pada pengembangan web, UI/UX, dan pengembangan aplikasi." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: "#0E1F1D",
+            panel: "#152B28",
+            edge: "#25423E",
+            mist: "#E6EEE9",
+            soft: "#9DB4AD",
+            amber: "#F2B84B",
+          },
+          fontFamily: {
+            display: ["Bricolage Grotesque", "system-ui", "sans-serif"],
+            sans: ["DM Sans", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    a:focus-visible { outline: 2px solid #F2B84B; outline-offset: 3px; }
+
+    @media (min-width: 1024px) {
+      #navbar {
+        position: fixed; top: 0; left: 0; right: 0; height: 4.5rem;
+        flex-direction: row; align-items: center; justify-content: flex-start;
+        padding: 0 2.5rem; border-bottom: 1px solid #25423E; border-right: 0;
+        animation: nav-from-top .35s ease;
+      }
+      #navbar .sidebar-links { flex: 0 0 auto; margin-left: auto; flex-direction: row; gap: 0.25rem; overflow: visible; }
+      #navbar .nav-tagline { display: none; }
+
+      #navbar.is-side {
+        top: 0; bottom: 0; right: auto; width: 17rem; height: auto;
+        flex-direction: column; align-items: stretch; justify-content: space-between;
+        padding: 2.5rem 2rem; border-bottom: 0; border-right: 1px solid #25423E;
+        animation: nav-from-left .35s ease;
+      }
+      #navbar.is-side .sidebar-links { flex: 1; margin-left: 0; margin-top: 2rem; flex-direction: column; }
+      #navbar.is-side .nav-tagline { display: block; }
+
+      .content { transition: margin-left .35s ease; }
+      html.nav-side .content { margin-left: 17rem; }
+      html.nav-side { scroll-padding-top: 1rem; }
+    }
+
+    @keyframes nav-from-top  { from { transform: translateY(-100%); } to { transform: none; } }
+    @keyframes nav-from-left { from { transform: translateX(-100%); } to { transform: none; } }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.5rem; line-height: 1.05; }
+      .block-pad { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .stats { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-night text-mist font-sans antialiased">
+
+  <!-- navbar -->
+  <header id="navbar" class="sidebar sticky top-0 z-20 flex items-center gap-4 border-b border-edge bg-night/95 px-5 py-3 backdrop-blur">
+    <a href="#tentang" class="shrink-0 font-display text-xl font-extrabold">Ibnu Ad'ha<span class="text-amber">.</span></a>
+    <nav class="sidebar-links flex flex-1 gap-1 overflow-x-auto text-soft" aria-label="Navigasi utama">
+      <a href="#tentang" class="rounded-lg px-3 py-2 hover:bg-panel hover:text-mist">Tentang</a>
+      <a href="#keahlian" class="rounded-lg px-3 py-2 hover:bg-panel hover:text-mist">Keahlian</a>
+      <a href="#proyek" class="rounded-lg px-3 py-2 hover:bg-panel hover:text-mist">Proyek</a>
+      <a href="#kontak" class="rounded-lg px-3 py-2 hover:bg-panel hover:text-mist">Kontak</a>
+    </nav>
+    <p class="nav-tagline hidden text-sm text-soft lg:block">Mahasiswa Ilmu Komputer &amp; web developer.</p>
+  </header>
+
+  <div class="content">
+
+    <!-- about me -->
+    <section id="tentang" class="block-pad mx-auto max-w-4xl px-6 py-20">
+      <div class="flex flex-col gap-8 sm:flex-row sm:items-center">
+        <img src="resource/foto.jpg" alt="Foto Ibnu Ad'ha" class="h-28 w-28 rounded-full object-cover">
+        <div>
+          <h1 class="hero-title font-display text-5xl font-extrabold leading-none">Saya Ibnu Ad'ha, mahasiswa Ilmu Komputer yang suka membangun produk digital.</h1>
+        </div>
+      </div>
+
+      <p class="mt-8 max-w-2xl text-lg leading-relaxed text-soft">
+        Saya mahasiswa Ilmu Komputer di FASILKOM-TI yang memiliki ketertarikan kuat pada pengembangan
+        web, UI/UX, dan pembuatan aplikasi. Saya mulai tertarik dengan coding sejak SMP dan terus
+        mengembangkan kemampuan melalui proyek kuliah, proyek pribadi, dan pengembangan produk digital.
+      </p>
+
+      <div class="stats mt-10 grid grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-edge bg-panel p-5">
+          <p class="font-display text-3xl font-extrabold text-amber">4+</p>
+          <p class="mt-1 text-sm text-soft">Proyek yang dikerjakan</p>
+        </div>
+        <div class="rounded-2xl border border-edge bg-panel p-5">
+          <p class="font-display text-3xl font-extrabold text-amber">5+</p>
+          <p class="mt-1 text-sm text-soft">Tahun belajar coding</p>
+        </div>
+        <div class="rounded-2xl border border-edge bg-panel p-5">
+          <p class="font-display text-3xl font-extrabold text-amber">8+</p>
+          <p class="mt-1 text-sm text-soft">Teknologi yang dipelajari</p>
+        </div>
+      </div>
+
+      <a href="#proyek" class="mt-10 inline-block rounded-full bg-amber px-6 py-3 font-medium text-night transition hover:brightness-110">Lihat proyek saya</a>
+    </section>
+
+    <!-- skills -->
+    <section id="keahlian" class="block-pad border-t border-edge">
+      <div class="mx-auto max-w-4xl px-6 py-20">
+        <h2 class="font-display text-3xl font-extrabold">Keahlian</h2>
+        <p class="mt-2 text-soft">Teknologi yang pernah saya gunakan dalam proyek kuliah, pribadi, dan pengembangan produk.</p>
+
+        <div class="mt-10 grid gap-x-12 gap-y-8 md:grid-cols-2">
+          <div>
+            <div class="mb-2 flex justify-between"><span>HTML &amp; CSS</span><span class="text-soft">90%</span></div>
+            <div class="h-2 rounded-full bg-panel"><div class="h-2 rounded-full bg-amber" style="width:90%"></div></div>
+          </div>
+          <div>
+            <div class="mb-2 flex justify-between"><span>JavaScript</span><span class="text-soft">80%</span></div>
+            <div class="h-2 rounded-full bg-panel"><div class="h-2 rounded-full bg-amber" style="width:75%"></div></div>
+          </div>
+          <div>
+            <div class="mb-2 flex justify-between"><span>React</span><span class="text-soft">85%</span></div>
+            <div class="h-2 rounded-full bg-panel"><div class="h-2 rounded-full bg-amber" style="width:85%"></div></div>
+          </div>
+          <div>
+            <div class="mb-2 flex justify-between"><span>Kotlin</span><span class="text-soft">75%</span></div>
+            <div class="h-2 rounded-full bg-panel"><div class="h-2 rounded-full bg-amber" style="width:75%"></div></div>
+          </div>
+          <div>
+            <div class="mb-2 flex justify-between"><span>Dart</span><span class="text-soft">65%</span></div>
+            <div class="h-2 rounded-full bg-panel"><div class="h-2 rounded-full bg-amber" style="width:75%"></div></div>
+          </div>
+          <div>
+            <div class="mb-2 flex justify-between"><span>C/C++</span><span class="text-soft">90%</span></div>
+            <div class="h-2 rounded-full bg-panel"><div class="h-2 rounded-full bg-amber" style="width:75%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- projects -->
+    <section id="proyek" class="block-pad border-t border-edge">
+      <div class="mx-auto max-w-4xl px-6 py-20">
+        <h2 class="font-display text-3xl font-extrabold">Proyek</h2>
+
+        <div class="mt-10 flex flex-col gap-6">
+
+          <article class="grid overflow-hidden rounded-2xl border border-edge bg-panel md:grid-cols-[260px_1fr]">
+            <img src="resource/project1.jpg" alt="PocketFlow" class="h-full w-full object-cover">
+            <div class="p-6">
+              <h3 class="font-display text-xl font-extrabold">PocketFlow</h3>
+              <p class="mt-2 text-soft">PocketFlow adalah aplikasi expense tracker yang dilengkapi dengan fitur AI.</p>
+              <ul class="mt-5 flex flex-wrap gap-2 text-sm">
+                <li class="rounded-full border border-amber/60 px-3 py-1 text-amber">Kotlin</li>
+                <li class="rounded-full border border-amber/60 px-3 py-1 text-amber">C++</li>
+                <li class="rounded-full border border-amber/60 px-3 py-1 text-amber">Firebase</li>
+              </ul>
+              <a href="https://github.com/sriirezeki/Aplikasi_ExpenseTracker" target="_blank" class="mt-5 inline-block text-sm underline decoration-amber underline-offset-4 hover:text-amber">Lihat di GitHub</a>
+            </div>
+          </article>
+
+          <article class="grid overflow-hidden rounded-2xl border border-edge bg-panel md:grid-cols-[260px_1fr]">
+            <img src="resource/project2.png" alt="PocketFlow" class="h-full w-full object-cover">
+            <div class="p-6">
+              <h3 class="font-display text-xl font-extrabold">Foundry Tracker</h3>
+              <p class="mt-2 text-soft">Foundry Tracker adalah website progression tracker untuk game warframe.</p>
+              <ul class="mt-5 flex flex-wrap gap-2 text-sm">
+                <li class="rounded-full border border-amber/60 px-3 py-1 text-amber">HTML</li>
+              </ul>
+              <a href="https://github.com/ibnuadha123/FoundryTracker" target="_blank" class="mt-5 inline-block text-sm underline decoration-amber underline-offset-4 hover:text-amber">Lihat di GitHub</a>
+            </div>
+          </article>
+
+          <article class="grid overflow-hidden rounded-2xl border border-edge bg-panel md:grid-cols-[260px_1fr]">
+            <img src="resource/project3.png" alt="PocketFlow" class="h-full w-full object-cover">
+            <div class="p-6">
+              <h3 class="font-display text-xl font-extrabold">Untai Store</h3>
+              <p class="mt-2 text-soft">Untai Store adalah bisnis digital berbasis website yang menjual berbagai aksesoris gawai.</p>
+              <ul class="mt-5 flex flex-wrap gap-2 text-sm">
+                <li class="rounded-full border border-amber/60 px-3 py-1 text-amber">NextJS</li>
+                <li class="rounded-full border border-amber/60 px-3 py-1 text-amber">PostgreSQL</li>
+              </ul>
+              <a href="https://untai-store.vercel.app" target="_blank" class="mt-5 inline-block text-sm underline decoration-amber underline-offset-4 hover:text-amber">Kunjungi Website</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- contacts -->
+    <section id="kontak" class="block-pad border-t border-edge">
+      <div class="mx-auto max-w-4xl px-6 py-20">
+        <div class="rounded-3xl bg-panel p-8 md:p-12">
+          <h2 class="font-display text-3xl font-extrabold">Ayo ngobrol</h2>
+          <p class="mt-3 max-w-lg text-soft">Punya ide proyek, pertanyaan, atau ingin berdiskusi tentang pengembangan web? Hubungi saya melalui salah satu kanal ini.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="mailto:ibnuadha123@gmail.com" target="_blank" class="rounded-full bg-amber px-6 py-3 font-medium text-night hover:brightness-110">ibnuadha123@gmail.com</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="rounded-full border border-edge px-6 py-3 hover:border-amber hover:text-amber">LinkedIn</a>
+            <a href="https://github.com/ibnuadha123" target="_blank" rel="noopener" class="rounded-full border border-edge px-6 py-3 hover:border-amber hover:text-amber">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="border-t border-edge px-6 py-8 text-center text-sm text-soft">
+      Ibnu Ad'ha Hasibuan.
+    </footer>
+
+  </div>
+  <script>
+    (function () {
+      var nav = document.getElementById("navbar");
+      var root = document.documentElement;
+      var desktop = window.matchMedia("(min-width: 1024px)");
+      var side = false;
+      function update() {
+        var y = window.scrollY;
+        var next = desktop.matches && (side ? y > 20 : y > 80);
+        if (next === side) return;
+        side = next;
+        nav.classList.toggle("is-side", side);
+        root.classList.toggle("nav-side", side);
+      }
+      window.addEventListener("scroll", update, { passive: true });
+      desktop.addEventListener("change", update);
+      update();
+    })();
+  </script>
+</body>
+</html>
